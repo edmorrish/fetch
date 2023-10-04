@@ -27,6 +27,14 @@ type ResponseOptions = {|
 
 type HeadersInit = Headers | {[string]: string}
 
+type Support = {|
+  searchParams: boolean;
+  iterable: boolean;
+  blob: boolean;
+  formData: boolean;
+  arrayBuffer: boolean;
+|}
+
 // https://github.com/facebook/flow/blob/f68b89a5012bd995ab3509e7a41b7325045c4045/lib/bom.js#L902-L914
 declare class Headers {
   @@iterator(): Iterator<[string, string]>;
@@ -112,6 +120,7 @@ declare class DOMException extends Error {
 
 declare module.exports: {
   fetch(input: RequestInfo, init?: RequestOptions): Promise<Response>;
+  support: Support;
   Headers: typeof Headers;
   Request: typeof Request;
   Response: typeof Response;

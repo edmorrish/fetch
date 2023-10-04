@@ -6,7 +6,7 @@ var g =
   (typeof global !== 'undefined' && global) ||
   {}
 
-var support = {
+export var support = {
   searchParams: 'URLSearchParams' in g,
   iterable: 'Symbol' in g && 'iterator' in Symbol,
   blob:
